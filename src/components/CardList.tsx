@@ -1,10 +1,15 @@
 import React from 'react';
 import Card from './Card';
+import { Robot } from './MainPage';
 
-const CardList = ({ robots }) => {
+type CardListProps = {
+  robots?: Robot[];
+};
+
+const CardList: React.FC<CardListProps> = ({ robots }) => {
   return (
     <div>
-      {robots.map((robot) => (
+      {robots?.map((robot) => (
         <Card
           key={robot.id}
           id={robot.id}

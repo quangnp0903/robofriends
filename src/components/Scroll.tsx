@@ -1,4 +1,10 @@
-const Scroll = (props) => {
+import { ReactNode } from 'react';
+
+type ScrollProps = {
+  children: ReactNode;
+};
+
+const Scroll: React.FC<ScrollProps> = (props) => {
   return (
     <div
       style={{

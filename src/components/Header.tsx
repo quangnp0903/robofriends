@@ -7,7 +7,7 @@ import CounterButton from './CounterButton';
 // shallow comparison of current and previous props and state.
 
 class Header extends Component {
-  shouldComponentUpdate(nextProps, nextState) {
+  shouldComponentUpdate(nextProps: Object, nextState: Object) {
     return false;
   }
   render() {

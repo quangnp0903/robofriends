@@ -1,4 +1,8 @@
-const SearchBox = ({ searchChange }) => {
+type SearchBoxProps = {
+  searchChange?: React.ChangeEventHandler<HTMLInputElement>;
+};
+
+const SearchBox: React.FC<SearchBoxProps> = ({ searchChange }) => {
   return (
     <div className="pa2">
       <input

@@ -5,8 +5,13 @@ import { setSearchField, requestRobots } from '../actions';
 import MainPage from '../components/MainPage';
 
 import './App.css';
+import { RootState } from '../store';
+import { ChangeSearchFieldAction, RobotsAction } from '../constants';
+import { ThunkDispatch } from 'redux-thunk';
 
-const mapStateToProps = (state) => {
+type Actions = ChangeSearchFieldAction | RobotsAction;
+
+const mapStateToProps = (state: RootState) => {
   return {
     searchField: state.searchRobots.searchField,
     robots: state.requestRobots.robots,
@@ -14,9 +19,12 @@ const mapStateToProps = (state) => {
   };
 };
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = (
+  dispatch: ThunkDispatch<RootState, unknown, Actions>
+) => {
   return {
-    onSearchChange: (event) => dispatch(setSearchField(event.target.value)),
+    onSearchChange: (event: React.ChangeEvent<HTMLInputElement>) =>
+      dispatch(setSearchField(event.target.value)),
     onRequestRobots: () => dispatch(requestRobots()),
   };
 };

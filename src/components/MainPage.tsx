@@ -6,14 +6,28 @@ import Scroll from './Scroll';
 import ErrorBoundary from './ErrorBoundary';
 import Header from './Header';
 
-export class MainPage extends Component {
+export type Robot = {
+  id: number;
+  name: string;
+  email: string;
+};
+
+type MainPageProps = {
+  robots?: Robot[];
+  searchField?: string;
+  isPending?: boolean;
+  onSearchChange?: React.ChangeEventHandler<HTMLInputElement>;
+  onRequestRobots?: () => void;
+};
+
+export class MainPage extends Component<MainPageProps> {
   componentDidMount() {
-    this.props.onRequestRobots();
+    this.props.onRequestRobots?.();
   }
 
   filterRobots = () => {
-    const { robots, searchField } = this.props;
-    return robots.filter((robot) => {
+    const { robots, searchField = '' } = this.props;
+    return robots?.filter((robot) => {
       return robot.name.toLowerCase().includes(searchField.toLowerCase());
     });
   };
