@@ -34,6 +34,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "npx jest --no-coverage --watch",
+    "test-react": "npx jest --no-coverage --watchAll=false",
     "eject": "react-scripts eject",
     "coverage": "npx jest --coverage"
   },
