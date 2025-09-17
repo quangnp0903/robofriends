@@ -24,8 +24,16 @@ workflows:
   version: 2
   build-test-and-lint:
     jobs:
-      - build
+      - build:
+          filters:
+            branches:
+              ignore:
+                - /legacy\/.*/ # skip legacy/* branches
       - hithere
       - test:
+          filters:
+            branches:
+              ignore:
+                - /legacy\/.*/ # skip legacy/* branches
           requires:
             - hithere
